@@ -31,7 +31,7 @@ module Types
 
     def workout_titles
       x = Workout.all
-      x.map { |el| el.title + ", " + el.comments }
+      x.map { |el| el.comments ? el.title + ", " + el.comments : el.title }
       # Workout.all.first.title
       # [Workout.all.first.title]
     end
