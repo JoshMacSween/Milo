@@ -25,6 +25,9 @@ module Types
 
     field :workout_titles, [String], null: false, description: "title of all workouts"
     field :workouts, [Types::WorkoutType], description: "All workouts"
+    field :workout, Types::WorkoutType, description: "A single workout" do
+      argument :id, ID, required: true, description: "The ID of the workout"
+    end
 
     def test_field
       "Hello World!"
@@ -39,6 +42,10 @@ module Types
 
     def workouts
       Workout.all
+    end
+
+    def workout(id:)
+      Workout.find(id)
     end
   end
 end
