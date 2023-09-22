@@ -16,36 +16,18 @@ module Types
       ids.map { |id| context.schema.object_from_id(id, context) }
     end
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
-
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-
     field :workout_titles, [String], null: false, description: "title of all workouts"
     field :workouts, [Types::WorkoutType], description: "All workouts"
     field :workout, Types::WorkoutType, description: "A single workout" do
       argument :id, ID, required: true, description: "The ID of the workout"
     end
 
-    def test_field
-      "Hello World!"
-    end
-
-    def workout_titles
-      x = Workout.all
-      x.map { |el| el.comments ? el.title + ", " + el.comments : el.title }
-      # Workout.all.first.title
-      # [Workout.all.first.title]
+    def workout(id:)
+      Workout.find(id)
     end
 
     def workouts
       Workout.all
-    end
-
-    def workout(id:)
-      Workout.find(id)
     end
   end
 end
