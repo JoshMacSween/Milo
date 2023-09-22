@@ -24,6 +24,7 @@ module Types
       description: "An example field added by the generator"
 
     field :workout_titles, [String], null: false, description: "title of all workouts"
+    field :workouts, [Types::WorkoutType], description: "All workouts"
 
     def test_field
       "Hello World!"
@@ -34,6 +35,10 @@ module Types
       x.map { |el| el.comments ? el.title + ", " + el.comments : el.title }
       # Workout.all.first.title
       # [Workout.all.first.title]
+    end
+
+    def workouts
+      Workout.all
     end
   end
 end
