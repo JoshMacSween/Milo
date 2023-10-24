@@ -1,5 +1,5 @@
 module Types
   class ExerciseType < BaseObject
-    field :title, String, null: false
+    field :name, String, null: false
   end
 end

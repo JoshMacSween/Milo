@@ -21,6 +21,7 @@ module Types
     field :workout, Types::WorkoutType, description: "A single workout" do
       argument :id, ID, required: true, description: "The ID of the workout"
     end
+    field :exercises, [Types::ExerciseType], description: "All exercises"
 
     def workout(id:)
       Workout.find(id)
@@ -28,6 +29,10 @@ module Types
 
     def workouts
       Workout.all
+    end
+
+    def exercises
+      Exercise.all
     end
   end
 end
