@@ -10,14 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_08_212834) do
+ActiveRecord::Schema.define(version: 2023_10_10_165642) do
 
-  create_table "workouts", force: :cascade do |t|
-    t.string "title"
-    t.text "comments"
-    t.text "exercises"
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "exercises_workouts", force: :cascade do |t|
+    t.integer "exercise_id", null: false
+    t.integer "workout_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exercise_id"], name: "index_exercises_workouts_on_exercise_id"
+    t.index ["workout_id"], name: "index_exercises_workouts_on_workout_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "title"
+    t.text "comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "exercises_workouts", "exercises"
+  add_foreign_key "exercises_workouts", "workouts"
 end
