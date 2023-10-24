@@ -12,6 +12,24 @@
 
 ActiveRecord::Schema.define(version: 2023_10_10_165642) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "author_id"
+    t.string "genre", default: [], array: true
+    t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -19,8 +37,8 @@ ActiveRecord::Schema.define(version: 2023_10_10_165642) do
   end
 
   create_table "exercises_workouts", force: :cascade do |t|
-    t.integer "exercise_id", null: false
-    t.integer "workout_id", null: false
+    t.bigint "exercise_id", null: false
+    t.bigint "workout_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exercise_id"], name: "index_exercises_workouts_on_exercise_id"
@@ -34,6 +52,7 @@ ActiveRecord::Schema.define(version: 2023_10_10_165642) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "books", "authors"
   add_foreign_key "exercises_workouts", "exercises"
   add_foreign_key "exercises_workouts", "workouts"
 end
