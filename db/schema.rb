@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_22_162341) do
+ActiveRecord::Schema.define(version: 2023_12_21_214230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,15 +36,15 @@ ActiveRecord::Schema.define(version: 2023_11_22_162341) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_activities", force: :cascade do |t|
+  create_table "sets", force: :cascade do |t|
     t.bigint "exercise_id", null: false
     t.bigint "workout_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "weight"
     t.integer "reps"
-    t.index ["exercise_id"], name: "index_user_activities_on_exercise_id"
-    t.index ["workout_id"], name: "index_user_activities_on_workout_id"
+    t.index ["exercise_id"], name: "index_sets_on_exercise_id"
+    t.index ["workout_id"], name: "index_sets_on_workout_id"
   end
 
   create_table "workouts", force: :cascade do |t|
@@ -55,6 +55,6 @@ ActiveRecord::Schema.define(version: 2023_11_22_162341) do
   end
 
   add_foreign_key "books", "authors"
-  add_foreign_key "user_activities", "exercises"
-  add_foreign_key "user_activities", "workouts"
+  add_foreign_key "sets", "exercises"
+  add_foreign_key "sets", "workouts"
 end
