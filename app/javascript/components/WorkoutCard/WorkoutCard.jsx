@@ -2,12 +2,19 @@ import React from "react";
 import "./WorkoutCard.css";
 
 export default function WorkoutCard(workout) {
-  console.log(workout)
   const { title, exercises } = workout.workout;
   const exerciseList = exercises.map((exercise) => {
+    const setsList = exercise.sets.map((set, index) => {
+      return (
+        <li className="list-group-item" key={index}>
+          Set {index + 1}: {set.reps}x{set.weight} lbs
+        </li>);
+    });
+
     return (
       <li className="list-group-item bg-1" key={exercise.id}>
-        Exercise: {exercise.name}
+        {exercise.name}
+        <ul>{setsList}</ul>
       </li>
     );
   });
