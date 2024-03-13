@@ -2,10 +2,26 @@ import React from 'react';
 import workoutData from '../dummyWorkoutData';
 import WorkoutCard from './WorkoutCard/WorkoutCard';
 
-function WorkoutList({ props }) {
-	const WorkoutCardList = workoutData.map((workout) => {
-		return <WorkoutCard workout={workout} />
-	})
+export interface Workout {
+	title: string;
+	comments: string;
+	exercises: Exercise[];
+}
+
+export interface Exercise {
+	name: string;
+	id: number;
+		sets: {
+			weight: number;
+			reps: number;
+		}[];
+	}
+
+function WorkoutList() {
+
+	const WorkoutCardList = workoutData.map((workout: Workout) => {
+		return <WorkoutCard workout={workout} />;
+	});
 
 	return (
 		<div>

@@ -5,6 +5,7 @@ const workoutData = [
 		exercises: [
 			{
 				name: "Bench Press",
+				id: 3,
 				sets: [
 					{
 						weight: 135,
@@ -22,6 +23,7 @@ const workoutData = [
 			},
 			{
 				name: "Squat",
+				id: 2,
 				sets: [
 					{
 						weight: 185,
@@ -39,6 +41,7 @@ const workoutData = [
 			},
 			{
 				name: "Deadlift",
+				id: 1,
 				sets: [
 					{
 						weight: 200,
@@ -62,6 +65,7 @@ const workoutData = [
 		exercises: [
 			{
 				name: "Overhead Press",
+				id: 4,
 				sets: [
 					{
 						weight: 80,
@@ -79,6 +83,7 @@ const workoutData = [
 			},
 			{
 				name: "Squat",
+				id: 2,
 				sets: [
 					{
 						weight: 190,
@@ -96,6 +101,7 @@ const workoutData = [
 			},
 			{
 				name: "Deadlift",
+				id: 1,
 				sets: [
 					{
 						weight: 205,
@@ -119,6 +125,7 @@ const workoutData = [
 		exercises: [
 			{
 				name: "Bench Press",
+				id: 3,
 				sets: [
 					{
 						weight: 140,
@@ -136,6 +143,7 @@ const workoutData = [
 			},
 			{
 				name: "Squat",
+				id: 2,
 				sets: [
 					{
 						weight: 195,
@@ -153,6 +161,7 @@ const workoutData = [
 			},
 			{
 				name: "Deadlift",
+				id: 1,
 				sets: [
 					{
 						weight: 210,

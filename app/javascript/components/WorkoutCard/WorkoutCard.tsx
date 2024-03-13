@@ -1,9 +1,14 @@
 import React from "react";
 import "./WorkoutCard.css";
+import { Exercise, Workout } from "../WorkoutList";
 
-export default function WorkoutCard(workout) {
-	const { title, comments, exercises } = workout.workout;
-	const exerciseList = exercises.map((exercise) => {
+interface WorkoutCardProps {
+	workout: Workout;
+}
+
+export default function WorkoutCard({ workout }: WorkoutCardProps) {
+	const { title, comments, exercises } = workout;
+	const exerciseList = exercises.map((exercise: Exercise) => {
 		const setsList = exercise.sets.map((set, index) => {
 			return (
 				<li className="list-group-item card-text" key={index}>
