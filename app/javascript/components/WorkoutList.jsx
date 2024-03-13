@@ -12,7 +12,7 @@ function WorkoutList({ props }) {
 			<h1 className="display-4">MILO.</h1>
 			<p className="lead">Workout tracker.</p>
 
-			<div className="d-flex justify-content-center">
+			<div className="d-flex justify-content-between mx-4">
 				{WorkoutCardList}
 			</div>
 		</div>
