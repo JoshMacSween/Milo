@@ -1,0 +1,10 @@
+.bg-1 {
+	background-color: #f1f1f1;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.exerciseList div:last-child {
+    margin-bottom: 0;
+}

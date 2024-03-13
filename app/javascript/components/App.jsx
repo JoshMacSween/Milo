@@ -1,10 +1,12 @@
 import React from 'react';
-import Hello from './Hello';
+import WorkoutList from './WorkoutList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+    const props = {name: 'Brandi', age: 30, location: 'New York'};
     return (
         <div>
-            <Hello />
+            <WorkoutList props={props}/>
         </div>
     );
 }
