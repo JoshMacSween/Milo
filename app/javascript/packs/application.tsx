@@ -24,11 +24,19 @@ const client = new ApolloClient({
 client
   .query({
     query: gql`
-    query allWorkouts {
+    query allWorkoutsExercisesAndSets {
       workouts {
         id
         title
         comments
+        workoutSets {
+          id
+          exercise {
+            name
+          }
+          reps
+          weight
+        }
       }
     }
     `,
