@@ -10,10 +10,30 @@ import "channels"
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../components/App'
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+const client = new ApolloClient({
+  uri: 'http://localhost:3000/graphql',
+  cache: new InMemoryCache(),
+});
+
+client
+  .query({
+    query: gql`
+    query allWorkouts {
+      workouts {
+        id
+        title
+        comments
+      }
+    }
+    `,
+  })
+  .then((result) => console.log(result));
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(

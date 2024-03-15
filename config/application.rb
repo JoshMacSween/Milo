@@ -25,5 +25,12 @@ module Milo
         ENV[key.to_s] = value
       end if File.exist?(env_file)
     end
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://127.0.0.1:3000'
+        resource '/graphql', headers: :any, methods: [:post, :options]
+      end
+    end
   end
 end
