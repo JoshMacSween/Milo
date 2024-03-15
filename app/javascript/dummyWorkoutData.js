@@ -179,6 +179,66 @@ const workoutData = [
 			},
 		],
 	},
+	{
+		title: "Workout 4",
+		comments: "Fourth day of Starting Strength",
+		exercises: [
+			{
+				name: "Overhead Press",
+				id: 4,
+				sets: [
+					{
+						weight: 85,
+						reps: 5,
+					},
+					{
+						weight: 85,
+						reps: 5,
+					},
+					{
+						weight: 85,
+						reps: 5,
+					},
+				],
+			},
+			{
+				name: "Squat",
+				id: 2,
+				sets: [
+					{
+						weight: 200,
+						reps: 5,
+					},
+					{
+						weight: 200,
+						reps: 5,
+					},
+					{
+						weight: 200,
+						reps: 5,
+					},
+				],
+			},
+			{
+				name: "Deadlift",
+				id: 1,
+				sets: [
+					{
+						weight: 215,
+						reps: 5,
+					},
+					{
+						weight: 215,
+						reps: 5,
+					},
+					{
+						weight: 215,
+						reps: 5,
+					},
+				],
+			},
+		],
+	},
 ];
 
 export default workoutData;
