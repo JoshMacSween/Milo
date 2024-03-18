@@ -45,7 +45,9 @@ client
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <App />,
+    <ApolloProvider client={client}>
+      <App />,
+    </ApolloProvider>,
     document.body.appendChild(document.createElement('div')),
   )
 })
