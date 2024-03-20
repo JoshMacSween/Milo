@@ -17,3 +17,26 @@ export const GET_WORKOUTS = gql`
 		}
 	}
 `;
+
+export const CREATE_WORKOUT = gql`
+	mutation newWorkout {
+		createWorkout(input: {title:"Day 3 of starting strength"}) {
+			id
+			title
+			comments
+		}
+	}
+`;
+
+export const CREATE_SET = gql`
+	mutation newSet {
+		addSet(input: {workoutId:4, exerciseId: 4, reps:5, weight:135 }) {
+			id
+			exercise {
+				name
+			}
+			reps
+			weight
+		}
+	}
+`;
