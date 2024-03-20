@@ -1,22 +1,14 @@
 import React from 'react';
-import { useMutation } from '@apollo/client';
-import { CREATE_WORKOUT, CREATE_SET } from '../hooks/constants.ts';
+import useAddWorkout from '../hooks/useAddWorkout.ts';
+import useAddSet from '../hooks/useAddSet.ts';
 
 interface AddWorkoutProps {
 
 }
 
 export default function AddWorkout() {
-  const [addWorkout, { data: addWorkoutData }] = useMutation(CREATE_WORKOUT);
-  const [addSet, { data: addSetData }] = useMutation(CREATE_SET);
-
-  const handleAddWorkout = () => {
-    addWorkout({ variables: { title: "Extra workout" }});
-  };
-
-  const handleAddSet = () => {
-    addSet({ variables: { workoutId: 5, exerciseId: 1, reps: 5, weight: 200 } })
-  }
+  const handleAddWorkout = useAddWorkout();
+  const handleAddSet = useAddSet();
 
   return (
     <div className="d-flex flex-column">
