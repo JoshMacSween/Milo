@@ -40,3 +40,11 @@ export const CREATE_SET = gql`
 		}
 	}
 `;
+
+export const DELETE_SET = gql`
+	mutation deleteSet($setId: ID!) {
+		deleteSet(input: {setId: $setId}) {
+			id
+		}
+	}
+`;
