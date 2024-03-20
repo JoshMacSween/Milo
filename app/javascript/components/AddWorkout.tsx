@@ -11,11 +11,11 @@ export default function AddWorkout() {
   const [addSet, { data: addSetData }] = useMutation(CREATE_SET);
 
   const handleAddWorkout = () => {
-    addWorkout({ variables: { title: "Day 4 of starting strength" } });
+    addWorkout({ variables: { title: "Extra workout" }});
   };
 
   const handleAddSet = () => {
-    addSet({ variables: { workoutId: 4, exerciseId: 4, reps: 5, weight: 135 } })
+    addSet({ variables: { workoutId: 5, exerciseId: 1, reps: 5, weight: 200 } })
   }
 
   return (

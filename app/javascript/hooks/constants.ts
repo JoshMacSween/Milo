@@ -19,8 +19,8 @@ export const GET_WORKOUTS = gql`
 `;
 
 export const CREATE_WORKOUT = gql`
-	mutation newWorkout {
-		createWorkout(input: {title:"Day 3 of starting strength"}) {
+	mutation newWorkout($title: String!) {
+		createWorkout(input: {title: $title}) {
 			id
 			title
 			comments
@@ -29,8 +29,8 @@ export const CREATE_WORKOUT = gql`
 `;
 
 export const CREATE_SET = gql`
-	mutation newSet {
-		addSet(input: {workoutId:4, exerciseId: 4, reps:5, weight:135 }) {
+	mutation newSet($workoutId: ID!, $exerciseId: ID!, $reps: Int!, $weight: Int!) {
+		addSet(input: {workoutId: $workoutId, exerciseId: $exerciseId, reps: $reps, weight: $weight}) {
 			id
 			exercise {
 				name
