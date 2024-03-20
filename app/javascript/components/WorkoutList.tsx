@@ -30,41 +30,16 @@ function WorkoutList() {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error : {error.message}</p>;
 
-	// console.log({ data })
-
-	// const WorkoutCardList = workoutData.map((workout: Workout) => {
-	// 	return <WorkoutCard workout={workout} />;
-	// });
-
-	function TestComponent() {
-		const result = data?.workouts.map((workout) => {
-			const sets = workout.workoutSets.map((set) => {
-				return <div>
-					<p>{set.exercise.name}</p>
-					<p>{set.reps}x{set.weight}lbs</p>
-				</div>;
-			})
-			return <div>
-				<h1>{workout.title}</h1>
-				<p>{workout.comments}</p>
-				{sets}
-			</div>;
-		});
-		return result
-	};
-
 	const WorkoutCardList = data?.workouts.map((workout: Workout) => {
 		return <WorkoutCard workout={workout} />;
 	});
-
 
 	return (
 		<div>
 			<h1 className="display-4">MILO.</h1>
 			<p className="lead">Workout tracker.</p>
-
 			<div className="d-flex justify-content-between mx-4">
-				{ WorkoutCardList }
+				{WorkoutCardList}
 			</div>
 		</div>
 	);

@@ -21,28 +21,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-client
-  .query({
-    query: gql`
-    query allWorkoutsExercisesAndSets {
-      workouts {
-        id
-        title
-        comments
-        workoutSets {
-          id
-          exercise {
-            name
-          }
-          reps
-          weight
-        }
-      }
-    }
-    `,
-  })
-  .then((result) => console.log(result));
-
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <ApolloProvider client={client}>
