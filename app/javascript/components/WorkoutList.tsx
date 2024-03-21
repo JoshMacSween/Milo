@@ -12,9 +12,7 @@ function WorkoutList() {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error : {error.message}</p>;
 
-	const WorkoutCardList = data?.workouts.map((workout: Workout) => {
-		return <WorkoutCard workout={workout} />;
-	});
+	const WorkoutCardList = data?.workouts.map((workout: Workout, index) => <WorkoutCard workout={workout} key={index}/>);
 
 	return (
 		<div>
@@ -22,7 +20,7 @@ function WorkoutList() {
 				<h1 className="display-4 ml-4 px-3">MILO.</h1>
 			</div>
 			<p className="lead">Workout tracker.</p>
-			<div className="d-flex justify-content-between flex-wrap mx-4">
+			<div className="workout-list mx-4">
 				{WorkoutCardList}
 			</div>
 			<div>

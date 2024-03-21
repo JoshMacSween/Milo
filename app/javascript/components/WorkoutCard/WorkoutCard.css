@@ -5,6 +5,12 @@
 	margin-bottom: 10px;
 }
 
+.workout-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .exerciseList div:last-child {
     margin-bottom: 0;
 }

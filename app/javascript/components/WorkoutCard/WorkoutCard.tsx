@@ -6,7 +6,7 @@ interface WorkoutCardProps {
 	workout: Workout;
 }
 
-export default function WorkoutCard({workout}: WorkoutCardProps) {
+export default function WorkoutCard({ workout }: WorkoutCardProps) {
 	const { title, comments, workoutSets } = workout;
 
 	const setsList = workoutSets.map((set, index) => {
