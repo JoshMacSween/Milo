@@ -20,7 +20,7 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
 	return (
 		<div className="card bg-1">
 			<div className="card-body">
-				<h5 className="card-title">{title}</h5>
+				<h5 className="palette-slate">{title}</h5>
 				<ul className="list-group list-group-flush">{setsList}</ul>
 				{comments && <h5 className="lead">{comments}</h5>}
 			</div>

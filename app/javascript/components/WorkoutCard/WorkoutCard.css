@@ -14,3 +14,43 @@
 .exerciseList div:last-child {
     margin-bottom: 0;
 }
+
+.bg-slate {
+  background-color: #264653;
+}
+
+.palette-slate {
+  color: #264653
+}
+
+.palette-slate-light {
+  color: #2a9d8f
+}
+
+.bg-slate-light {
+  background-color: #2a9d8f
+}
+
+.palette-yellow {
+  color: #e9c46a
+}
+
+.bg-yellow {
+  background-color: #e9c46a
+}
+
+.palette-orange {
+  color: #f4a261
+}
+
+.bg-orange {
+  background-color: #f4a261
+}
+
+.palette-red {
+  color: #e76f51
+}
+
+.bg-red {
+  background-color: #e76f51
+}

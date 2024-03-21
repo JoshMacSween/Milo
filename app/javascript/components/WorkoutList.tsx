@@ -16,8 +16,8 @@ function WorkoutList() {
 
 	return (
 		<div>
-			<div className="bg-light">
-				<h1 className="display-4 ml-4 px-3">MILO.</h1>
+			<div className="bg-slate">
+				<h1 className="display-4 ml-4 px-3 text-light">MILO.</h1>
 			</div>
 			<p className="lead">Workout tracker.</p>
 			<div className="workout-list mx-4">
