@@ -1,7 +1,8 @@
 import React from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import useAddWorkout from '../hooks/useAddWorkout.ts';
 import useGetWorkouts from '../hooks/useGetWorkouts.ts';
+import useAddSet from '../hooks/useAddSet.ts';
 
 interface AddWorkoutModalProps {
   toggleModal: () => void;
@@ -9,28 +10,36 @@ interface AddWorkoutModalProps {
 
 type Inputs = {
   workout: string;
+  exerciseId: number;
+  reps: number;
+  weight: number;
 }
 
-function SelectExercise() {
-  const exercises = useGetWorkouts();
-  const options = exercises.map((exercise) => {
-    <option value={exercise.id} key={exercise.id}>{exercise.name}</option>
-  })
+// function AddSet() {
+//   // useState to store selected WorkoutID and ExerciseID from form
+//   // useState to store reps and weight from form
 
-  return (
-    <select>
-      {options}
-    </select>
-  );
-}
+//   const handleAddSet = useAddSet({
+//     workoutId: "1",
+//     exerciseId: "1",
+//     reps: 10,
+//     weight: 100
+
+//   });
+//   return (
+//     <div className="btn btn-primary" onClick={handleAddSet}>
+//       Add Set
+//     </div>
+//   );
+
+// }
 
 export default function AddWorkoutModal({ toggleModal }: AddWorkoutModalProps) {
   const handleAddWorkout = useAddWorkout();
-  const {
-    register,
-    handleSubmit,
-  } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => handleAddWorkout(data.workout);
+  const { register, handleSubmit, control } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log({ data });
+
+  const exercises = useGetWorkouts();
 
   return (
     <div className="modal show d-block" tabIndex="-1">
@@ -42,11 +51,54 @@ export default function AddWorkoutModal({ toggleModal }: AddWorkoutModalProps) {
           </div>
           <div className="modal-body">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <input placeholder="Workout Title" {...register("workout")} />
+              <div className="input-group">
+                <span className="input-group-text">Workout</span>
+                <input placeholder="Workout Title" className="form-control" {...register("workout")} />
+              </div>
 
-              <input type="submit" />
+              <Controller
+                name="exerciseId"
+                control={control}
+                defaultValue={1}
+                render={({ field }) => (
+                  <div className="input-group my-2">
+                    <span className="input-group-text">Exercise</span>
+                    <select className="form-control" {...field}>
+                      {exercises.map((exercise) => (
+                        <option value={exercise.id} key={exercise.id}>
+                          {exercise.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              />
+              <div className="d-flex mb-3">
+                <Controller
+                  name="weight"
+                  control={control}
+                  defaultValue={0}
+                  render={({ field }) => (
+                    <div className="input-group">
+                      <span className="input-group-text">Weight</span>
+                      <input type="number" className="form-control" {...field} />
+                    </div>
+                  )}
+                />
+                <Controller
+                  name="reps"
+                  control={control}
+                  defaultValue={0}
+                  render={({ field }) => (
+                    <div className="input-group">
+                      <span className="input-group-text">Reps</span>
+                      <input type="number" className="form-control" {...field} />
+                    </div>
+                  )}
+                />
+              </div>
 
-              <SelectExercise />
+              <input className="btn btn-primary" type="submit" />
             </form>
           </div>
         </div>

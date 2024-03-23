@@ -9,8 +9,6 @@ interface AddWorkoutProps {
 }
 
 export default function AddWorkout() {
-  const handleAddWorkout = useAddWorkout();
-  const handleAddSet = useAddSet();
   const handleDeleteSet = useDeleteSet();
   const [showModal, setShowModal] = React.useState(false);
 
@@ -20,9 +18,6 @@ export default function AddWorkout() {
   return (
     <div className="d-flex flex-column">
       <footer className="bg-light py-3 px-4 sticky-footer">
-        <div className="btn btn-primary" onClick={handleAddSet}>
-          Add Set
-        </div>
         <div className="btn btn-primary" onClick={handleDeleteSet}>
           Delete Set
         </div>
