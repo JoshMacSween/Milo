@@ -1,6 +1,7 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import useAddWorkout from '../hooks/useAddWorkout.ts';
+import useGetWorkouts from '../hooks/useGetWorkouts.ts';
 
 interface AddWorkoutModalProps {
   toggleModal: () => void;
@@ -8,6 +9,19 @@ interface AddWorkoutModalProps {
 
 type Inputs = {
   workout: string;
+}
+
+function SelectExercise() {
+  const exercises = useGetWorkouts();
+  const options = exercises.map((exercise) => {
+    <option value={exercise.id} key={exercise.id}>{exercise.name}</option>
+  })
+
+  return (
+    <select>
+      {options}
+    </select>
+  );
 }
 
 export default function AddWorkoutModal({ toggleModal }: AddWorkoutModalProps) {
@@ -31,6 +45,8 @@ export default function AddWorkoutModal({ toggleModal }: AddWorkoutModalProps) {
               <input placeholder="Workout Title" {...register("workout")} />
 
               <input type="submit" />
+
+              <SelectExercise />
             </form>
           </div>
         </div>

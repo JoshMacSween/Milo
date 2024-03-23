@@ -48,3 +48,12 @@ export const DELETE_SET = gql`
 		}
 	}
 `;
+
+export const GET_EXERCISES = gql`
+	query allExercises {
+		exercises {
+			id
+			name
+		}
+	}
+`;
